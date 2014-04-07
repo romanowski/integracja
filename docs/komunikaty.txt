@@ -1,0 +1,45 @@
+{ events: [
+	[ //time window
+		{ time: 12345 //timestamp
+	 		what: String //event kind eg. turn left
+	 		data: String // additional data eg. turn degree
+	 		who: 123 // long id of event creator
+			id: 1234 //long id of event 
+	 	},
+	 	{...}
+ 	],
+ 	[...] 
+]}
+
+{sequences:[
+	{//single sequence
+		id: Long,
+		order: [
+			what, //event kinds in order in time window
+			what,
+			what
+		]
+		},
+		[...]
+]}
+
+{clusters:[
+	{sequence: {
+		id: Long //if of sequence
+		order: [
+			what, //event kinds in order in time window
+			what,
+			what
+			]
+		}
+		groups: [
+			[
+				id, //id of event
+				id,
+				id,
+			],
+			[...]
+		]
+	},
+	{...}
+]}
