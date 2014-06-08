@@ -1,0 +1,19 @@
+package controllers
+
+import model.Event
+import controllers.RulesProcessor
+
+declare Event
+@role( event )
+@timestamp( time )
+@expires( 60s )
+end
+
+rule "Catch sequence"
+when
+	$e : Event( what matches "a" ) from entry-point "Event Generator"
+	$f : Event( what matches "b", this after[0s, 60s] $e ) from entry-point "Event Generator"
+	$g : Event( what matches "c", this after[0s, 60s] $f ) from entry-point "Event Generator"
+then
+	RulesProcessor.thenResolve([$e, $f, $g]);
+end

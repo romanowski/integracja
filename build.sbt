@@ -12,3 +12,8 @@ libraryDependencies ++= Seq(
   cache,
   ws
 )
+
+libraryDependencies ++= {
+  Seq("drools-compiler", "drools-core")
+    .map("org.drools" % _ % "5.4.0.Final")
+}
