@@ -9,8 +9,8 @@ import model._
 object Mappings {
 
   private val sequenceMapping = mapping(
-    "id" -> of[Long],
-    "order" -> seq(of[String])
+    "input" -> of[Long],
+    "output" -> seq(of[String])
   )(Sequence.apply)(Sequence.unapply)
 
   private val clusterMapping = mapping(

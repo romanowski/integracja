@@ -23,7 +23,7 @@ object RulesProcessor {
   private lazy val ksession: StatefulKnowledgeSession = createKnowledgeSession(kbase)
   private lazy val eg: WorkingMemoryEntryPoint = ksession.getWorkingMemoryEntryPoint("Event Generator")
   private lazy val ruleWriter = new FileWriter(new File(rulesFile), true)
-  private lazy val sequenceWriter = new FileWriter(new File(sequencesFile), true)
+  private lazy val sequenceWriter = new FileWriter(new File(sequencesFile))
 
   def getSession: StatefulKnowledgeSession = {
     ksession
