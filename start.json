@@ -1,4 +1,4 @@
 [{
     "host": "integracja.herokuapp.com",
-    "path": "/rest/events"
+    "path": "/rest/correlations"
 }]

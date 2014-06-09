@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -d @start.json http://localhost:9000/rest/events
+curl -H "Content-Type: application/json" -d @start.json http://immense-refuge-2812.herokuapp.com/push/test?config=1

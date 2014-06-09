@@ -1,0 +1,6 @@
+[
+    {
+        'output': [
+            [u'type 1', u'type 1', u'type 2', u'type 2', u'type 1', u'type 1', u'type 2', u'type 2', u'type 2', u'type 2']
+        ],
+        '--gadekmolenda--temp': set([(u'type 1', u'type 1', u'type 2', u'type 2', u'type 1', u'type 1', u'type 2', u'type 2', u'type 2', u'type 2')]), 'input': [{u'type': u'type 1', u'timestamp': 1402330919.562882, u'name': u'event 0'}, {u'type': u'type 1', u'timestamp': 1402330920.0303862, u'name': u'event 1'}, {u'type': u'type 2', u'timestamp': 1402330920.2462637, u'name': u'event 3'}, {u'type': u'type 2', u'timestamp': 1402330920.5818143, u'name': u'event 2'}, {u'type': u'type 1', u'timestamp': 1402330920.598646, u'name': u'event 0'}, {u'type': u'type 1', u'timestamp': 1402330921.0515509, u'name': u'event 1'}, {u'type': u'type 2', u'timestamp': 1402330921.2358904, u'name': u'event 3'}, {u'type': u'type 2', u'timestamp': 1402330921.5766118, u'name': u'event 3'}, {u'type': u'type 2', u'timestamp': 1402330921.5850606, u'name': u'event 2'}, {u'type': u'type 2', u'timestamp': 1402330922.58178, u'name': u'event 3'}]}]
