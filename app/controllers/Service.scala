@@ -13,7 +13,7 @@ object Service {
   def computeCorrelations(events: Seq[Event]): Unit = {
     val data = CorrelationService.compute(events)
     val json = postReadyData(data)
-    println(Json.prettyPrint(json))
+    println(s"processed: ${System.nanoTime()}")
 
     import play.api.Play.current
 
