@@ -1,0 +1,88 @@
+package controllers
+
+import model.{Correlation, EventCorrelation, Sequence, Event}
+import org.drools.runtime.StatefulKnowledgeSession
+import org.drools.runtime.rule.WorkingMemoryEntryPoint
+import play.api.libs.json.Json
+import play.api.libs.ws.WS
+
+object Service {
+  
+  private val events : Seq[Event] = List.empty
+
+
+  def computeCorrelations(events: Seq[Event]): Unit = {
+    val data = CorrelationService.compute(events)
+    val json = postReadyData(data)
+    println(Json.prettyPrint(json))
+
+    import play.api.Play.current
+
+    Some("http://wp.pl").map(WS.url).map {
+      case req =>
+        import scala.concurrent.ExecutionContext.Implicits.global
+        val future = req.post(json)
+        future.onFailure {
+          case e => e.printStackTrace()
+        }
+        future.onSuccess {
+          case response =>
+            import response._
+            println(s"Got status: $status")
+        }
+    }
+
+  }
+
+  def processEvents(events: Seq[Event]): Unit = {
+<<<<<<< HEAD
+    this.events.++:(events)
+=======
+
+    for (e <- events) {
+      eg.insert(e)
+    }
+    ksession.fireAllRules()
+>>>>>>> 67a13d27b2e9e03b43a040c74c6702860c7d266b
+    println(events)
+  }
+
+  def processSequences(sequences: Seq[Sequence]): Unit = {
+    for (s <- sequences) {
+      val rule = RulesCreator.createRule(s)
+      RulesProcessor.writeRule(rule)
+    }
+    fireUpRules
+    println(sequences)
+  }
+  
+  private def fireUpRules {
+    val ksession: StatefulKnowledgeSession = RulesProcessor.getSession
+    val eg: WorkingMemoryEntryPoint = RulesProcessor.getEntryPoint
+    for(e <- this.events) {
+      eg.insert(e)
+    }
+    ksession.fireAllRules()
+  }
+
+  def postReadyData(eventCorrelations: Seq[EventCorrelation]) = {
+    def singleEvent(ec: EventCorrelation) = Json.obj(
+      "name" -> ec.name,
+      "type" -> ec.eventType,
+      "frequency" -> ec.frequency,
+      "deviaiton" -> ec.deviation,
+      "correlation" -> ec.correlations.map(singleCorrelation)
+    )
+
+    def singleCorrelation(correlation: Correlation) = Json.obj(
+      "id" -> correlation.id,
+      "after" -> correlation.after,
+      "deviation" -> correlation.deviation
+    )
+
+    Json.obj(
+      "events" -> eventCorrelations.map(singleEvent)
+    )
+  }
+
+}

@@ -22,7 +22,7 @@ end
     val when = new StringBuilder
     val slist = new StringBuilder
 
-    for (elem <- sequence.order) {
+    for (elem <- sequence.output) {
       var econd: String = null
       var s: String = null
 
@@ -43,7 +43,7 @@ end
       j += 1
     }
 
-    val rule = String.format(RULE_TEMPLATE, sequence.id.toString, when.mkString, slist.mkString)
+    val rule = String.format(RULE_TEMPLATE, sequence.input.toString, when.mkString, slist.mkString)
     rule
   }
 
