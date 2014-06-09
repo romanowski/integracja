@@ -1,17 +1,44 @@
 package controllers
 
-import model.{ Sequence, Event }
+import model.{Correlation, EventCorrelation, Sequence, Event}
 import org.drools.runtime.StatefulKnowledgeSession
 import org.drools.runtime.rule.WorkingMemoryEntryPoint
+import play.api.libs.json.Json
+import play.api.libs.ws.WS
 
 object Service {
 
   private lazy val ksession: StatefulKnowledgeSession = RulesProcessor.getSession
   private lazy val eg: WorkingMemoryEntryPoint = RulesProcessor.getEntryPoint
 
+
+  def computeCorrelations(events: Seq[Event]): Unit = {
+    val data = CorrelationService.compute(events)
+    val json = postReadyData(data)
+    println(Json.prettyPrint(json))
+
+    import play.api.Play.current
+
+    Some("http://wp.pl").map(WS.url).map {
+      case req =>
+        import scala.concurrent.ExecutionContext.Implicits.global
+        val future = req.post(json)
+        future.onFailure {
+          case e => e.printStackTrace()
+        }
+        future.onSuccess {
+          case response =>
+            import response._
+            println(s"Got status: $status")
+        }
+    }
+
+  }
+
   def processEvents(events: Seq[Event]): Unit = {
+
     for (e <- events) {
-        eg.insert(e)
+      eg.insert(e)
     }
     ksession.fireAllRules()
     println(events)
@@ -22,6 +49,26 @@ object Service {
       println(s)
     }
     println(sequences)
+  }
+
+  def postReadyData(eventCorrelations: Seq[EventCorrelation]) = {
+    def singleEvent(ec: EventCorrelation) = Json.obj(
+      "name" -> ec.name,
+      "type" -> ec.eventType,
+      "frequency" -> ec.frequency,
+      "deviaiton" -> ec.deviation,
+      "correlation" -> ec.correlations.map(singleCorrelation)
+    )
+
+    def singleCorrelation(correlation: Correlation) = Json.obj(
+      "id" -> correlation.id,
+      "after" -> correlation.after,
+      "deviation" -> correlation.deviation
+    )
+
+    Json.obj(
+      "events" -> eventCorrelations.map(singleEvent)
+    )
   }
 
 }
