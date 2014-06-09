@@ -1,6 +1,6 @@
 package controllers
 
-import model.{ Correlation, EventCorrelation, Sequence, Event }
+import model.{Correlation, EventCorrelation, Sequence, Event}
 import org.drools.runtime.StatefulKnowledgeSession
 import org.drools.runtime.rule.WorkingMemoryEntryPoint
 import play.api.libs.json.Json
@@ -17,7 +17,7 @@ object Service {
 
     import play.api.Play.current
 
-    Some("http://wp.pl").map(WS.url).map {
+    Some("http://immense-refuge-2812.herokuapp.com/results").map(WS.url).map {
       case req =>
         import scala.concurrent.ExecutionContext.Implicits.global
         val future = req.post(json)
@@ -70,6 +70,7 @@ object Service {
       "deviation" -> correlation.deviation)
 
     Json.obj(
+      "component" -> "romanowski",
       "events" -> eventCorrelations.map(singleEvent))
   }
 
