@@ -15,5 +15,6 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= {
   Seq("drools-compiler", "drools-core")
-    .map("org.drools" % _ % "5.4.0.Final")
+    .map("org.drools" % _ % "5.4.0.Final") ++
+    Seq("nz.ac.waikato.cms.weka" % "weka-stable" % "3.6.11")
 }

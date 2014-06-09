@@ -10,6 +10,7 @@ object Rest extends Controller {
       Mappings.eventsForm.bindFromRequest().fold(
         errors => BadRequest("Bad data"),
         data => {
+          println(request.body.asText)
           Service.processEvents(data)
           Ok
         }

@@ -1,0 +1,255 @@
+{
+  "series": [
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301688.1394
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301688.5852
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301688.7781
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301689.0317
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301689.146
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301689.5609
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301689.7677
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301690.0329
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301690.0971
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301690.1417
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301690.6292
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301690.9089
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301691.0707
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301691.1353
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301691.228
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301691.5037
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301691.737
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301691.9823
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301692.0602
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301692.2197
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301692.5898
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301692.8296
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301692.9798
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301693.0544
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301693.0586
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301693.6542
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301693.9048
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301694.0563
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301694.1021
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301694.2213
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301694.5855
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301694.7191
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301695.0327
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301695.0682
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301695.2301
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301695.6534
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301695.8662
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301696.0188
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301696.0237
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301696.1876
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301696.5174
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301696.6448
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301696.9609
+    },
+    {
+      "name": "event 0",
+      "type": "type 1",
+      "timestamp": 1402301696.9895
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301697.1975
+    },
+    {
+      "name": "event 1",
+      "type": "type 1",
+      "timestamp": 1402301697.4686
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301697.7441
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301697.9553
+    },
+    {
+      "name": "event 2",
+      "type": "type 2",
+      "timestamp": 1402301698.0204
+    },
+    {
+      "name": "event 3",
+      "type": "type 2",
+      "timestamp": 1402301699.027
+    }
+  ],
+  "class": 1
+}

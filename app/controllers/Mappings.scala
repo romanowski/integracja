@@ -18,11 +18,9 @@ object Mappings {
     "groups" -> seq(seq(of[Long])))(Cluster.apply)(Cluster.unapply)
 
   private val eventMapping = mapping(
-    "time" -> of[Long],
-    "what" -> of[String],
-    "data" -> of[String],
-    "who" -> of[Long],
-    "id" -> of[Long]
+    "name" -> of[String],
+    "type" -> of[String],
+    "timestamp" -> of[Double]
   )(Event.apply)(Event.unapply)
 
 
@@ -31,7 +29,7 @@ object Mappings {
   )
   val sequencesForm = Form(single("sequences" -> seq(sequenceMapping)))
 
-  val eventsForm = Form(single("events" -> seq(seq(eventMapping))))
+  val eventsForm = Form(single("series" -> seq(eventMapping)))
 
 
 }

@@ -1,8 +1,7 @@
 package model
 
-/**
- * Created by krzysiek on 31.05.14.
- */
-case class Event(time: Long, what: String, data: String, who: Long, id: Long)
+case class Event(name: String, eventType: String, timeStamp: Double) {
+  def time = timeStamp.toLong
+}
 
 

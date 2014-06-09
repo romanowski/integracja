@@ -10,6 +10,7 @@ import org.drools.runtime.rule.WorkingMemoryEntryPoint
 import model.Event
 import java.io.File
 import java.io.FileWriter
+import collection.JavaConversions._
 
 object RulesProcessor {
 
@@ -19,11 +20,12 @@ object RulesProcessor {
   private val fileWriter: FileWriter = new FileWriter(new File("sequences.txt"))
 
   def getSession: StatefulKnowledgeSession = {
-    return ksession
+    ksession
   }
 
   def getEntryPoint: WorkingMemoryEntryPoint = {
-    return eg
+    println(ksession.getWorkingMemoryEntryPoints.map(_.getEntryPointId).mkString(" "))
+    eg
   }
 
   //  def run() {
@@ -47,7 +49,7 @@ object RulesProcessor {
 
     val kbase: KnowledgeBase = KnowledgeBaseFactory.newKnowledgeBase(conf)
     kbase.addKnowledgePackages(kbuilder.getKnowledgePackages)
-    return kbase
+    kbase
   }
 
   private def createKnowledgeSession(kbase: KnowledgeBase): StatefulKnowledgeSession = {
@@ -55,15 +57,16 @@ object RulesProcessor {
     ksconf.setOption(ClockTypeOption.get(ClockType.REALTIME_CLOCK.getId))
 
     val ksession: StatefulKnowledgeSession = kbase.newStatefulKnowledgeSession(ksconf, null)
-    return ksession
+    ksession
   }
 
   def thenResolve(sequence: Array[Event]) {
     val sb: StringBuilder = new StringBuilder("seq:\n")
     for (e <- sequence) {
-      sb.append(String.format("%s %s %s %s %s\n", e.time.toString, e.what, e.data, e.who.toString, e.id.toString))
+      import e._
+      sb.append(s"$time $eventType $name")
     }
-    fileWriter.write(sb.mkString);
+    fileWriter.write(sb.mkString)
   }
 
 }
