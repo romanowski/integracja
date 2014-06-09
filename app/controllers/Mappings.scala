@@ -30,6 +30,4 @@ object Mappings {
   val sequencesForm = Form(single("sequences" -> seq(sequenceMapping)))
 
   val eventsForm = Form(single("series" -> seq(eventMapping)))
-
-
 }

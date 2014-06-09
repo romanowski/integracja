@@ -4,16 +4,17 @@ import model.Sequence
 
 object RulesCreator {
 
-  private val FIRST_CONDITION = "$e%s : Event( eventType matches \"%s\" ) from entry-point \"Event Generator\"";
-  private val NEXT_CONDITION = "\n\t$e%s : Event( eventType matches \"%s\", this after[0s, 10s] $e%s ) from entry-point \"Event Generator\"";
+  private val FIRST_CONDITION = "$e%s : Event( eventType matches \"%s\" ) from entry-point \"Event Generator\""
+  private val NEXT_CONDITION = "\n\t$e%s : Event( eventType matches \"%s\", this after[0s, 10s] $e%s ) from entry-point \"Event Generator\""
   private val RULE_TEMPLATE =
-    """rule \"Rule %s\"
+    """rule "Rule %s"
 when
 	%s
 then
-	RulesProcessor.thenResolve([%s]);
+	RulesProcessor.thenResolve(Arrays.asList(%s));
 end
-\n""";
+
+"""
 
   def createRule(sequence: Sequence): String = {
     var j = 0

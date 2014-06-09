@@ -11,17 +11,19 @@ import model.Event
 import java.io.File
 import java.io.FileWriter
 import collection.JavaConversions._
+import java.util.List
+import java.util.Arrays
 
 object RulesProcessor {
 
   private val rulesFile = "app/controllers/rules.drl"
-  private val sequenceFile = "sequences.txt"
+  private val sequencesFile = "app/controllers/sequences.txt"
 
   private lazy val kbase: KnowledgeBase = createKnowledgeBase(rulesFile)
   private lazy val ksession: StatefulKnowledgeSession = createKnowledgeSession(kbase)
   private lazy val eg: WorkingMemoryEntryPoint = ksession.getWorkingMemoryEntryPoint("Event Generator")
-  private lazy val ruleWriter = new FileWriter(new File(rulesFile))
-  private lazy val sequenceWriter = new FileWriter(new File(sequenceFile))
+  private lazy val ruleWriter = new FileWriter(new File(rulesFile), true)
+  private lazy val sequenceWriter = new FileWriter(new File(sequencesFile), true)
 
   def getSession: StatefulKnowledgeSession = {
     ksession
@@ -31,18 +33,6 @@ object RulesProcessor {
     println(ksession.getWorkingMemoryEntryPoints.map(_.getEntryPointId).mkString(" "))
     eg
   }
-
-  //  def run() {
-  //    val e1: Event = new Event(System.currentTimeMillis(), "a", System.currentTimeMillis().toString, 1L, 1L)
-  //    val e2: Event = new Event(System.currentTimeMillis(), "b", System.currentTimeMillis().toString, 2L, 2L)
-  //    val e3: Event = new Event(System.currentTimeMillis(), "c", System.currentTimeMillis().toString, 3L, 3L)
-  //
-  //    eg.insert(e1)
-  //    eg.insert(e2)
-  //    eg.insert(e3)
-  //
-  //    ksession.fireAllRules
-  //  }
 
   private def createKnowledgeBase(rulesfile: String): KnowledgeBase = {
     val kbuilder: KnowledgeBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder
@@ -69,11 +59,11 @@ object RulesProcessor {
     ruleWriter.flush()
   }
 
-  def thenResolve(sequence: Array[Event]) {
+  def thenResolve(sequence: List[Event]) {
     val sb: StringBuilder = new StringBuilder("seq:\n")
     for (e <- sequence) {
       import e._
-      sb.append(s"$time $eventType $name")
+      sb.append(s"$time $eventType $name\n")
     }
     sequenceWriter.write(sb.mkString)
     sequenceWriter.flush()
