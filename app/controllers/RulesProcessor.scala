@@ -16,14 +16,29 @@ import java.util.Arrays
 
 object RulesProcessor {
 
-  private val rulesFile = "app/controllers/rules.drl"
-  private val sequencesFile = "app/controllers/sequences.txt"
 
-  private lazy val kbase: KnowledgeBase = createKnowledgeBase(rulesFile)
+  val baseRule =
+    """
+      |package controllers
+      |
+      |import model.Event
+      |import controllers.RulesProcessor
+      |import java.util.Arrays
+      |
+      |declare Event
+      |@role( event )
+      |@timestamp( time )
+      |@expires( 60s )
+      |end
+      |
+    """.stripMargin
+
+  private var rulesFile = File.createTempFile("rules", "drl")
+
+  private lazy val kbase: KnowledgeBase = createKnowledgeBase(rulesFile.getAbsolutePath)
   private lazy val ksession: StatefulKnowledgeSession = createKnowledgeSession(kbase)
   private lazy val eg: WorkingMemoryEntryPoint = ksession.getWorkingMemoryEntryPoint("Event Generator")
-  private lazy val ruleWriter = new FileWriter(new File(rulesFile), true)
-  private lazy val sequenceWriter = new FileWriter(new File(sequencesFile))
+  private lazy val ruleWriter = new FileWriter(rulesFile)
 
   def getSession: StatefulKnowledgeSession = {
     ksession
@@ -55,7 +70,7 @@ object RulesProcessor {
   }
 
   def writeRule(rule: String) {
-    ruleWriter.write(rule)
+    ruleWriter.write(baseRule + rule)
     ruleWriter.flush()
   }
 
@@ -65,8 +80,6 @@ object RulesProcessor {
       import e._
       sb.append(s"$time $eventType $name\n")
     }
-    sequenceWriter.write(sb.mkString)
-    sequenceWriter.flush()
   }
 
 }

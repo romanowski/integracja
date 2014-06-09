@@ -43,8 +43,29 @@ object Service {
       val rule = RulesCreator.createRule(s)
       RulesProcessor.writeRule(rule)
     }
-    fireUpRules
+
     println(sequences)
+
+
+    val data = CorrelationService.compute(events)
+    val json = postReadyData(data)
+    println(s"processed: ${System.nanoTime()}")
+
+    import play.api.Play.current
+
+    Some("http://immense-refuge-2812.herokuapp.com/results").map(WS.url).map {
+      case req =>
+        import scala.concurrent.ExecutionContext.Implicits.global
+        val future = req.post(json)
+        future.onFailure {
+          case e => e.printStackTrace()
+        }
+        future.onSuccess {
+          case response =>
+            import response._
+            println(s"Got status: $status")
+        }
+    }
   }
 
   private def fireUpRules {

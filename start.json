@@ -1,4 +1,8 @@
 [{
     "host": "integracja.herokuapp.com",
-    "path": "/rest/correlations"
+    "path": "/rest/events"
+},
+{
+    "host": "agh10-integroda.herokuapp.com",
+    "path": "/generator"
 }]
