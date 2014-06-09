@@ -19,7 +19,7 @@ object Mappings {
 
   private val eventMapping = mapping(
     "name" -> of[String],
-    "type" -> of[String],
+    "eventType" -> of[String],
     "timestamp" -> of[Double]
   )(Event.apply)(Event.unapply)
 

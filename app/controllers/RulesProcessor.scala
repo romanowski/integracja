@@ -14,10 +14,14 @@ import collection.JavaConversions._
 
 object RulesProcessor {
 
-  private val kbase: KnowledgeBase = createKnowledgeBase("app/controllers/rules.drl")
-  private val ksession: StatefulKnowledgeSession = createKnowledgeSession(kbase)
-  private val eg: WorkingMemoryEntryPoint = ksession.getWorkingMemoryEntryPoint("Event Generator")
-  private val fileWriter: FileWriter = new FileWriter(new File("sequences.txt"))
+  private val rulesFile = "app/controllers/rules.drl"
+  private val sequenceFile = "sequences.txt"
+
+  private lazy val kbase: KnowledgeBase = createKnowledgeBase(rulesFile)
+  private lazy val ksession: StatefulKnowledgeSession = createKnowledgeSession(kbase)
+  private lazy val eg: WorkingMemoryEntryPoint = ksession.getWorkingMemoryEntryPoint("Event Generator")
+  private lazy val ruleWriter = new FileWriter(new File(rulesFile))
+  private lazy val sequenceWriter = new FileWriter(new File(sequenceFile))
 
   def getSession: StatefulKnowledgeSession = {
     ksession
@@ -60,13 +64,19 @@ object RulesProcessor {
     ksession
   }
 
+  def writeRule(rule: String) {
+    ruleWriter.write(rule)
+    ruleWriter.flush()
+  }
+
   def thenResolve(sequence: Array[Event]) {
     val sb: StringBuilder = new StringBuilder("seq:\n")
     for (e <- sequence) {
       import e._
       sb.append(s"$time $eventType $name")
     }
-    fileWriter.write(sb.mkString)
+    sequenceWriter.write(sb.mkString)
+    sequenceWriter.flush()
   }
 
 }

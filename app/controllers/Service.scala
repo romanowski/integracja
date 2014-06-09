@@ -5,23 +5,30 @@ import org.drools.runtime.StatefulKnowledgeSession
 import org.drools.runtime.rule.WorkingMemoryEntryPoint
 
 object Service {
-
-  private lazy val ksession: StatefulKnowledgeSession = RulesProcessor.getSession
-  private lazy val eg: WorkingMemoryEntryPoint = RulesProcessor.getEntryPoint
+  
+  private val events : Seq[Event] = List.empty
 
   def processEvents(events: Seq[Event]): Unit = {
-    for (e <- events) {
-        eg.insert(e)
-    }
-    ksession.fireAllRules()
+    this.events.++:(events)
     println(events)
   }
 
   def processSequences(sequences: Seq[Sequence]): Unit = {
     for (s <- sequences) {
-      println(s)
+      val rule = RulesCreator.createRule(s)
+      RulesProcessor.writeRule(rule)
     }
+    fireUpRules
     println(sequences)
+  }
+  
+  private def fireUpRules {
+    val ksession: StatefulKnowledgeSession = RulesProcessor.getSession
+    val eg: WorkingMemoryEntryPoint = RulesProcessor.getEntryPoint
+    for(e <- this.events) {
+      eg.insert(e)
+    }
+    ksession.fireAllRules()
   }
 
 }
