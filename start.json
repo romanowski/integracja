@@ -5,4 +5,4 @@
 {
     "host": "agh10-integroda.herokuapp.com",
     "path": "/generator"
-}]
+},{"host": "agh10-baptism.herokuapp.com", "path": "/push"}]
