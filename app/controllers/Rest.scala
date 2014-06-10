@@ -31,9 +31,10 @@ object Rest extends Controller {
   def getSequences = Action {
     implicit request =>
       Mappings.sequencesForm.bindFromRequest().fold(
-        errors =>
+        errors => {
           println(request.body.asText, request.body.asJson)
-            BadRequest ("Bad data"),
+          BadRequest("Bad data")
+        },
         data => {
           println(data)
           Service.processSequences(data)
