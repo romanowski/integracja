@@ -8,15 +8,6 @@ import model._
 
 object Mappings {
 
-  private val sequenceMapping = mapping(
-    "input" -> of[Long],
-    "output" -> seq(of[String])
-  )(Sequence.apply)(Sequence.unapply)
-
-  private val clusterMapping = mapping(
-    "sequence" -> sequenceMapping,
-    "groups" -> seq(seq(of[Long])))(Cluster.apply)(Cluster.unapply)
-
   private val eventMapping = mapping(
     "name" -> of[String],
     "type" -> of[String],
@@ -24,10 +15,10 @@ object Mappings {
   )(Event.apply)(Event.unapply)
 
 
-  val clustersMapping = single(
-    "clusters" -> seq(clusterMapping)
-  )
-  val sequencesForm = Form(single("sequences" -> seq(sequenceMapping)))
+  val sequencesData = Form(mapping(
+    "input" -> single("series" -> seq(eventMapping)),
+    "output" -> seq(seq(of[String]))
+  )(Sequences.apply)(Sequences.unapply))
 
   val eventsForm = Form(single("series" -> seq(eventMapping)))
 }

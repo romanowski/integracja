@@ -1,6 +1,308 @@
 {
-    "input": "",
-    "output": [
-        ["type 1", "type 2"]
+  "input": {
+    "series": [
+      {
+        "name": "event 0",
+        "timestamp": 1402301688.1394,
+        "type": "type 1"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301688.5852,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301688.7781,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301689.0317,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301689.146,
+        "type": "type 1"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301689.5609,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301689.7677,
+        "type": "type 2"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301690.0329,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301690.0971,
+        "type": "type 1"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301690.1417,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301690.6292,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301690.9089,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301691.0707,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301691.1353,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301691.228,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301691.5037,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301691.737,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301691.9823,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301692.0602,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301692.2197,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301692.5898,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301692.8296,
+        "type": "type 2"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301692.9798,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301693.0544,
+        "type": "type 1"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301693.0586,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301693.6542,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301693.9048,
+        "type": "type 2"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301694.0563,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301694.1021,
+        "type": "type 1"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301694.2213,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301694.5855,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301694.7191,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301695.0327,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301695.0682,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301695.2301,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301695.6534,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301695.8662,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301696.0188,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301696.0237,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301696.1876,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301696.5174,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301696.6448,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301696.9609,
+        "type": "type 2"
+      },
+      {
+        "name": "event 0",
+        "timestamp": 1402301696.9895,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301697.1975,
+        "type": "type 2"
+      },
+      {
+        "name": "event 1",
+        "timestamp": 1402301697.4686,
+        "type": "type 1"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301697.7441,
+        "type": "type 2"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301697.9553,
+        "type": "type 2"
+      },
+      {
+        "name": "event 2",
+        "timestamp": 1402301698.0204,
+        "type": "type 2"
+      },
+      {
+        "name": "event 3",
+        "timestamp": 1402301699.027,
+        "type": "type 2"
+      }
+    ],
+    "class": 1
+  },
+  "output": [
+    [
+      "type 2",
+      "type 1",
+      "type 2"
+    ],
+    [
+      "type 1",
+      "type 2"
+    ],
+    [
+      "type 2",
+      "type 2"
+    ],
+    [
+      "type 1",
+      "type 2",
+      "type 2"
+    ],
+    [
+      "type 2",
+      "type 1"
+    ],
+    [
+      "type 2",
+      "type 2",
+      "type 1"
+    ],
+    [
+      "type 1",
+      "type 2",
+      "type 1"
+    ],
+    [
+      "type 2",
+      "type 2",
+      "type 2"
+    ],
+    [
+      "type 1",
+      "type 2",
+      "type 1",
+      "type 2"
+    ],
+    [
+      "type 2",
+      "type 1",
+      "type 2",
+      "type 1"
     ]
+  ]
 }

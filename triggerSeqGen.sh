@@ -1,0 +1,1 @@
+curl -vX POST -H 'Content-Type: application/json' -d@events.json 'ztis-statystyczna.herokuapp.com/generator'

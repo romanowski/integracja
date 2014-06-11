@@ -1,7 +1,5 @@
 package controllers
 
-import model.Sequence
-
 object RulesCreator {
 
   private val FIRST_CONDITION = "$e%s : Event( eventType matches \"%s\" ) from entry-point \"Event Generator\""
@@ -16,13 +14,13 @@ end
 
 """
 
-  def createRule(sequence: Sequence): String = {
+  def createRule(sequences: Seq[String]): String = {
     var j = 0
 
     val when = new StringBuilder
     val slist = new StringBuilder
 
-    for (elem <- sequence.output) {
+    for (elem <- sequences) {
       var econd: String = null
       var s: String = null
 
@@ -43,7 +41,7 @@ end
       j += 1
     }
 
-    val rule = String.format(RULE_TEMPLATE, sequence.input.toString, when.mkString, slist.mkString)
+    val rule = String.format(RULE_TEMPLATE, sequences.toString, when.mkString, slist.mkString)
     rule
   }
 

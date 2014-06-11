@@ -1,10 +1,14 @@
 package controllers
 
-import model.{Correlation, EventCorrelation, Sequence, Event}
+import model._
 import org.drools.runtime.StatefulKnowledgeSession
 import org.drools.runtime.rule.WorkingMemoryEntryPoint
 import play.api.libs.json.Json
 import play.api.libs.ws.WS
+import model.Event
+import model.EventCorrelation
+import scala.Some
+import model.Correlation
 
 object Service {
 
@@ -38,16 +42,14 @@ object Service {
     println(events)
   }
 
-  def processSequences(sequences: Seq[Sequence]): Unit = {
-    for (s <- sequences) {
+  def processSequences(sequences: Sequences): Unit = {
+    for (s <- sequences.output) {
       val rule = RulesCreator.createRule(s)
       RulesProcessor.writeRule(rule)
     }
 
-    println(sequences)
 
-
-    val data = CorrelationService.compute(events)
+    val data = CorrelationService.compute(sequences.input)
     val json = postReadyData(data)
     println(s"processed: ${System.nanoTime()}")
 
