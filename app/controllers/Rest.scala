@@ -30,6 +30,7 @@ object Rest extends Controller {
 
   def getSequences = Action {
     implicit request =>
+      println(request.body.asJson)
       Mappings.sequencesForm.bindFromRequest().fold(
         errors => {
           println(request.body.asText, request.body.asJson)
