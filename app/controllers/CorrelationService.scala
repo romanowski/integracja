@@ -9,22 +9,27 @@ import scala.util.Random
 object CorrelationService {
 
   def compute(data: Seq[Event]): Seq[EventCorrelation] = {
-    data.sortBy(_.time)
 
-    data.zip(data.tail).groupBy { case (e, _) => (e.name, e.eventType)}
-      .map(Function.tupled(computeSingleEvent _))(collection.breakOut)
-  }
+    if (data.isEmpty)
+      Nil
+    else {
+      data.sortBy(_.time)
 
-  def idFor(data: (String, String)) = Random.nextInt(100)
+      data.zip(data.tail).groupBy { case (e, _) => (e.name, e.eventType)}
+        .map(Function.tupled(computeSingleEvent _))(collection.breakOut)
+    }
 
-  def computeSingleEvent(forEvent: (String, String), events: Seq[(Event, Event)]): EventCorrelation = {
+    def idFor(data: (String, String)) = Random.nextInt(100)
 
-    val corellations = events.groupBy { case (_, event) => event.name -> event.eventType}.map {
-      case (data, events) => singleCorrelation(idFor(data))(events)
-    }(collection.breakOut)
+    def computeSingleEvent(forEvent: (String, String), events: Seq[(Event, Event)]): EventCorrelation = {
+
+      val corellations = events.groupBy { case (_, event) => event.name -> event.eventType}.map {
+        case (data, events) => singleCorrelation(idFor(data))(events)
+      }(collection.breakOut)
 
 
-    EventCorrelation(forEvent._1, forEvent._2, events.size, 1, corellations)
+      EventCorrelation(forEvent._1, forEvent._2, events.size, 1, corellations)
+    }
   }
 
   def singleCorrelation(id: Int)(events: Seq[(Event, Event)]): Correlation = {
