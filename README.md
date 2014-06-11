@@ -9,9 +9,9 @@ w konsoli sbt -run - i aplikacja rusza na localhost:9000
 Uruchomienie całego systemu
 ==========
 
-Na adress ```http://immense-refuge-2812.herokuapp.com/push/test?config=1``` wysyłamy jsona
+Na adress http://immense-refuge-2812.herokuapp.com/push/test?config=1 wysyłamy JSONa
 
-```json
+```javascrpit
 [{
     "host": "integracja.herokuapp.com",
     "path": "/rest/events"
@@ -24,10 +24,10 @@ Na adress ```http://immense-refuge-2812.herokuapp.com/push/test?config=1``` wysy
 
 który wskazuje na komponenty które mają być uruchomione.
 
-Czekamy krótką chwile. Po czym podziwiamy wyniki pod adresem:
+Czekamy krótką chwile. Po czym podziwiamy wyniki pod adresem: 
 
-```http://immense-refuge-2812.herokuapp.com/results``` 
+http://immense-refuge-2812.herokuapp.com/results
 
 Dla czytelności możemy wcześniej usuąc poprzednie wyniki za pomocą DELETE'a na adress 
 
-```http://immense-refuge-2812.herokuapp.com/results```
+http://immense-refuge-2812.herokuapp.com/results
