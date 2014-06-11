@@ -11,6 +11,11 @@ Uruchomienie całego systemu
 
 Przed uruchomieniem dobrze jest wygenerować dane: POST na  http://immense-refuge-2812.herokuapp.com/sample/test?config=1
 
+
+Prostsza opcja: uruchamiamy skrypt triggerData.sh
+
+lub:
+
 Na adress http://immense-refuge-2812.herokuapp.com/push/test?config=1 wysyłamy JSONa
 
 ```javascrpit
