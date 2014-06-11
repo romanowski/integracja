@@ -3,6 +3,6 @@
     "path": "/rest/events"
 },
 {
-    "host": "agh10-integroda.herokuapp.com",
+    "host": "ztis-statystyczna.herokuapp.com",
     "path": "/generator"
-},{"host": "agh10-baptism.herokuapp.com", "path": "/push"}]
+}]
